@@ -15,31 +15,36 @@
         }
         .flag-wave {
             position: fixed;
-            top: 15px;
+            top: 10px;
             left: 20px;
             width: 85px;
-            height: 60px;
+            height: 66px;
             z-index: 9999;
             animation: wave 2s infinite alternate ease-in-out;
+            box-shadow: 0 1px 10px #0038b880;
         }
         @keyframes wave {
-            0% { transform: rotate(-5deg); }
-            100% { transform: rotate(7deg); }
+            0% { transform: rotate(-6deg); }
+            100% { transform: rotate(8deg); }
         }
         .logo {
-            width: 100px;
-            margin: 20px auto;
+            width: 140px;
+            margin: 35px auto 10px auto;
             display: block;
+            box-shadow: 0 2px 10px #0038b861;
+            border-radius: 18px;
         }
         .lang-select {
             text-align: center;
-            margin: 20px 0 10px 0;
+            margin: 14px 0 6px 0;
         }
         .lang-select select {
-            padding: 8px 15px;
-            border-radius: 5px;
+            padding: 8px 18px;
+            border-radius: 7px;
             border: 2px solid #0038b8;
-            font-size: 1em;
+            font-size: 1.12em;
+            background: #f3f9ff;
+            color: #0038b8;
         }
     </style>
 </head>
@@ -48,7 +53,7 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="דגל ישראל" class="flag-wave">
 
     <!-- הלוגו שלך -->
-    <img src="image.jpg" alt="לוגו אישי" class="logo">
+    <img src="occupational-compass-logo.jpg" alt="לוגו המצפן התעסוקתי" class="logo">
 
     <!-- בוחר שפה -->
     <div class="lang-select">

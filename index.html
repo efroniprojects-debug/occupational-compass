@@ -2,219 +2,46 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>המצפן התעסוקתי</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: 'Rubik', Arial, sans-serif;
-      margin: 0;
-      direction: rtl;
-      background: linear-gradient(135deg, #0038b8 0%, #ffffff 100%);
-    }
-    .flag-israel {
-      position: absolute;
-      top: 18px;
-      left: 22px;
-      width: 85px;
-      z-index: 50;
-    }
-    .logo-main {
-      width: 140px;
-      margin: 34px auto 12px auto;
-      display: block;
-      border-radius: 19px;
-      box-shadow: 0 4px 19px #0038b831;
-    }
-    .site-header {
-      text-align: center;
-      padding: 10px;
-      background: linear-gradient(135deg, #0038b8 0%, #0050d8 100%);
-      border-bottom: 8px solid #e5e8fc;
-      color: white;
-      box-shadow: 0 4px 54px #0038b820;
-    }
-    .site-header h1 { font-size:2.6em;font-weight:bold;margin-bottom:8px;}
-    .site-header .desc { font-size:1.15em;margin-bottom:9px;}
-    .lang-bar { text-align:center;margin:13px 0;}
-    select.language { padding:8px 20px; border-radius:7px; border:2px solid #0038b8; font-size:1em;}
-    .intro-box {
-      background: #fff;
-      max-width: 580px;
-      margin: 28px auto;
-      border-radius:16px;
-      padding:22px 16px;
-      box-shadow: 0 6px 30px #0038b825;
-      color:#0038b8;
-      font-size:1.14em;
-    }
-    .cta-btn {
-      background: #0038b8;
-      color: #fff;
-      font-size: 1.18em;
-      border-radius: 16px;
-      padding: 18px 40px;
-      border: none;
-      box-shadow: 0 4px 24px #0038b850;
-      font-weight: bold;
-      margin: 22px auto 18px auto;
-      display:block;
-      transition:background 0.2s;
-    }
-    .cta-btn:hover {background:#0050d8;}
-    .questions-box {
-      background: #f5f8fc;
-      max-width: 650px;
-      margin: 35px auto;
-      padding: 36px 28px 34px 28px;
-      border-radius: 22px;
-      box-shadow: 0 7px 38px #0038b828;
-      font-size:1.09em;
-      display:none;
-    }
-    .questions-box h2 { margin-bottom:18px; }
-    .question-label { font-weight:600; margin-bottom:7px; display:block;}
-    .select-main { width:96%;padding:8px;border-radius:8px;border:2px solid #0038b8;margin-bottom:7px;}
-    .scale-main { width:93%;margin-bottom:7px;}
-    .other-input { width:93%;padding:7px;border-radius:6px;border:1px solid #aaa;margin-top:6px;}
-    .footer {text-align:center;margin:50px 0 18px 0;color:#0038b8;font-size:1em;}
-    @media (max-width:700px){ .site-header h1{font-size:1.5em;} .logo-main{width:75px;} .intro-box,.questions-box{padding:10px;} }
-  </style>
+  <title>המצפן התעסוקתי</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- דגל ישראל מוצג רק בדף הראשי (ללא רקע וללא תנועה) -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" alt="דגל ישראל" class="flag-israel" id="flagMain">
-
-    <!-- לוגו בכל העמודים -->
-    <img src="occupational-compass-logo.jpg" alt="לוגו המצפן התעסוקתי" class="logo-main">
-
-    <div class="site-header">
-      <h1>המצפן התעסוקתי</h1>
-      <div class="desc">אבחון קריירה חכם המופעל ב־AI</div>
-      <div class="lang-bar">
-        <select class="language" id="langSelect">
-            <option value="he">🇮🇱 עברית</option>
-            <option value="en">🇬🇧 English</option>
-            <option value="ar">🇸🇦 العربية</option>
-            <option value="ru">🇷🇺 Русский</option>
-            <option value="am">🇪🇹 אמהרית</option>
-        </select>
+  <div class="site-header">
+    <img src="logo.png" alt="הלוגו של המצפן התעסוקתי" class="logo-main" />
+    <h1>המצפן התעסוקתי</h1>
+    <div>מערכת חברתית-חינמית לאבחון, הכוונה והשמה מבוססות AI</div>
+  </div>
+  <form id="diagnosisForm" autocomplete="off">
+    <div class="progress-bar"><div id="progress" class="progress"></div></div>
+    <div id="stepsWrap">
+      <!-- שלב 1 -->
+      <div class="step-card" id="step1">
+        <label for="name">שם מלא</label>
+        <input type="text" id="name" name="name" required>
+        <small>נא להקפיד על שם אמיתי ליצירת קשר ממוקד</small>
       </div>
+      <!-- שלב 2 -->
+      <div class="step-card" id="step2" style="display:none;">
+        <label for="age">גיל</label>
+        <input type="number" id="age" name="age" min="16" max="99" required>
+      </div>
+      <!-- שלב 3 -->
+      <div class="step-card" id="step3" style="display:none;">
+        <label for="city">עיר מגורים</label>
+        <input type="text" id="city" name="city" required>
+      </div>
+      <!-- לדוגמה: הוסף כאן שלבים עד step30 בהתאם למבנה שהצגנו -->
+      <!-- ... -->
     </div>
-
-    <div class="intro-box" id="introBox">
-      ברוכים הבאים ל[translate:המצפן התעסוקתי] – אבחון קריירה המבוסס כלי AI וייעוץ מקצועי. השירות מיועד למועמדים שמחפשים כיוון, התפתחות אישית והגשמה מקצועית.<br>
-      <b>המערכת תסייע לך למקסם הצלחות, לזהות חוזקות, להבין ערכים ולבנות מסלול קריירה מיטבי – בחינם וללא התחייבות!</b>
+    <div style="text-align:center;">
+      <button type="button" class="nav-btn" id="prevBtn" style="display:none;">הקודם</button>
+      <button type="button" class="nav-btn" id="nextBtn">הבא</button>
     </div>
-
-    <button class="cta-btn" id="openDiagnosis">התחל אבחון תעסוקתי 🎯</button>
-
-    <div class="questions-box" id="questionsBox">
-      <h2>אבחון אישי ב־30 שלבים</h2>
-      <form id="diagnosisForm">
-        <div id="stepArea"></div>
-        <div style="margin-top:24px;">
-            <button type="button" id="prevBtn" style="display:none;">← הקודם</button>
-            <button type="button" id="nextBtn">הבא →</button>
-            <button type="submit" id="submitBtn" style="display:none;">סיים אבחון וקבל המלצות מפורטות</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="footer">
-      <img src="occupational-compass-logo.jpg" alt="לוגו קטן" style="width:38px;vertical-align:middle;">  
-      כל הזכויות שמורות למצפן התעסוקתי &copy; 2025 | פיתוח מקצועי עם AI
-    </div>
-
-<script>
-const questions = [
-  {label:"דירוג עבודת צוות", type:"scale", min:1, max:7},
-  {label:"דירוג תקשורת בין-אישית", type:"scale", min:1, max:7},
-  {label:"רמת למידה עצמית", type:"scale", min:1, max:7},
-  {label:"יכולת להוביל תהליכים", type:"scale", min:1, max:7},
-  {label:"רמת גמישות לשינוי", type:"scale", min:1, max:7},
-  {label:"תחום קריירה עיקרי", type:"dropdown", options:["טכנולוגיה","ניהול","הדרכה","שירות","יצירתיות","פיתוח אישי","אחר"]},
-  {label:"המוטיבציה המרכזית שלך", type:"dropdown", options:["שכר","משמעות","השפעה","פיתוח","יציבות","אחר"]},
-  {label:"סגנון עבודה מועדף", type:"dropdown", options:["בודד","צוות","ניהול","היברידי","Hands-on","אחר"]},
-  {label:"הישג עיקרי בקריירה", type:"dropdown", options:["הצלחה בפרויקט","קידום בתפקיד","זכייה במענק","חדשנות מקצועית","אחר"]},
-  {label:"תחביב עיקרי", type:"dropdown", options:["ספורט","מוזיקה","טכנולוגיה","אומנות","כתיבה","גינון","אחר"]},
-  {label:"ערך מוביל בבחירה מקצועית", type:"dropdown", options:["השפעה","ביטחון","חופש","חדשנות","למידה","אחר"]},
-  {label:"יכולת להתמודד עם ביקורת", type:"scale", min:1, max:7},
-  {label:"רמת יצירתיות", type:"scale", min:1, max:7},
-  {label:"רמת התמדה", type:"scale", min:1, max:7},
-  {label:"האם אתה פתוח לאתגרים חדשים", type:"dropdown", options:["כן","לא"]},
-  {label:"האם יש לך מגבלות טכנולוגיות", type:"dropdown", options:["כן","לא","אחר"]},
-  {label:"ידע דיגיטלי / AI", type:"scale", min:1, max:7},
-  {label:"מהי סביבת העבודה המיטבית עבורך?", type:"dropdown", options:["משרד","שטח","מהבית","צוות קטן","עצמאי","אחר"]},
-  {label:"יעד מקצועי ל-5 שנים קדימה", type:"dropdown", options:["ניהול","התמחות","פיתוח טכנולוגי","מעבר תחום","יזמות","אחר"]},
-  {label:"דמות השראה מקצועית עבורך", type:"dropdown", options:["מורה","מנהל","קולגה","הורה","יזם","אחר"]},
-  {label:"איך תעדיף לקבל משוב מקצועי?", type:"dropdown", options:["פגישה","מייל","טכנולוגי (AI)","קבוצתי","אחר"]},
-  {label:"תחום שאתה שולל", type:"dropdown", options:["אף תחום","טכנולוגי","ניהולי","הדרכה","יצירה","אחר"]},
-  {label:"פתיחות ללמידה טכנולוגית", type:"scale", min:1, max:7},
-  {label:"האם אתה עוסק או למדת יזמות?", type:"dropdown", options:["כן","לא","אחר"]},
-  {label:"רמת משמעת עצמית", type:"scale", min:1, max:7},
-  {label:"העלאת קורות חיים (PDF/DOCX)", type:"file", accept:".pdf,.docx"},
-  {label:"בחר את מגדרך", type:"dropdown", options:["זכר","נקבה","אחר"]},
-  {label:"גיל*", type:"dropdown", options:["18-24","25-35","36-49","50+","אחר"]},
-  {label:"השכלה*", type:"dropdown", options:["תיכון","אקדמאי","טכנולוגי","עצמאי","אחר"]},
-  {label:"עיר מגורים*", type:"dropdown", options:["תל אביב","ירושלים","חיפה","באר שבע","אחר"]}
-];
-let currentStep=0,answers={},otherFields={};
-function renderStep() {
-  const q=questions[currentStep];
-  let html = `<label class="question-label">${q.label}</label>`;
-  if(q.type=="scale") {
-    html += `<input type="range" min="${q.min}" max="${q.max}" name="q${currentStep}" value="${answers["q"+currentStep]||q.min}" class="scale-main" 
-    oninput="document.getElementById('scaleVal${currentStep}').innerText=this.value;">
-    <span id="scaleVal${currentStep}" style="font-weight:bold;">${answers["q"+currentStep]||q.min}</span>`;
-  } else if(q.type=="dropdown") {
-    html += `<select name="q${currentStep}" class="select-main" onchange="handleSelectChange(this,${currentStep})">` +
-      q.options.map(opt=>`<option value="${opt}" ${answers["q"+currentStep]==opt?"selected":""}>${opt}</option>`).join("") +
-      `</select>`;
-    if(answers["q"+currentStep]=="אחר" && otherFields["q"+currentStep])
-      html += `<input type="text" class="other-input" name="other${currentStep}" 
-                value="${otherFields["q"+currentStep]||""}" placeholder="אנא פרט/י">`;
-  } else if(q.type=="file") {
-    html += `<input type="file" name="q${currentStep}" accept="${q.accept||''}" style="margin-top:12px;">`;
-  }
-  document.getElementById("stepArea").innerHTML=html;
-  document.getElementById("prevBtn").style.display=currentStep>0?"inline-block":"none";
-  document.getElementById("nextBtn").style.display=currentStep<questions.length-1?"inline-block":"none";
-  document.getElementById("submitBtn").style.display=currentStep===questions.length-1?"inline-block":"none";
-}
-window.handleSelectChange = function(sel, step) {
-  if(sel.value=="אחר") {
-    otherFields["q"+step]="";
-    renderStep(); // מוסיף שדה טקסט
-  }
-}
-document.getElementById("nextBtn").onclick=function(){
-  const f=document.getElementById("diagnosisForm");
-  let val=f["q"+currentStep]?.type=="file" ? f["q"+currentStep]?.files[0] : f["q"+currentStep]?.value;
-  answers["q"+currentStep]=val;
-  if(answers["q"+currentStep]=="אחר" && f["other"+currentStep]) 
-    otherFields["q"+currentStep]=f["other"+currentStep].value;
-  if(currentStep<questions.length-1) {currentStep++;renderStep();}
-}
-document.getElementById("prevBtn").onclick=function(){
-  if(currentStep>0){currentStep--;renderStep();}
-}
-document.getElementById("diagnosisForm").onsubmit=function(e){
-  e.preventDefault();
-  localStorage.setItem("compass-results",JSON.stringify(answers));
-  let rep = "<h2>דוח תוצאות והמלצות</h2><ul>";
-  for(let i=0;i<questions.length;i++){
-    let ans = answers["q"+i]==="אחר" ? (otherFields["q"+i]||"") : answers["q"+i]||"";
-    rep += `<li>${questions[i].label}: ${ans}</li>`;
-  }
-  rep += "</ul><p>להמשך – בנה קורות חיים, או פנה ליועץ השמה.</p>";
-  document.getElementById("diagnosisForm").innerHTML = rep;
-};
-document.getElementById("openDiagnosis").onclick=function(){
-  document.getElementById("questionsBox").style.display="block";
-  document.getElementById("introBox").style.display="none";
-  document.getElementById("flagMain").style.display="none";
-};
-renderStep();
-</script>
+  </form>
+  <div class="footer">
+    <img src="logo.png" alt="הלוגו של המצפן" style="width:36px;vertical-align:middle;border-radius:12px;"> כל הזכויות שמורות © 2025 | פיתוח: תרומה לקהילה
+  </div>
+  <script src="main.js"></script>
 </body>
 </html>

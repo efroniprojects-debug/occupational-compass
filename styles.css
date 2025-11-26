@@ -1,0 +1,301 @@
+/* בסיס כללי */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f6fafd;
+  font-family: "Rubik", Arial, sans-serif;
+  direction: rtl;
+  color: #0f2a4e;
+}
+
+/* כותרת עליונה */
+.site-header {
+  text-align: center;
+  padding: 24px 16px 16px 16px;
+  background: linear-gradient(135deg, #e7f0fd 0, #ffffff 100%);
+  box-shadow: 0 4px 16px #0038b833;
+}
+
+.logo-main {
+  max-width: 120px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px #0038b820;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.site-title {
+  margin: 4px 0 2px 0;
+  font-size: 2em;
+  font-weight: 900;
+  color: #00338c;
+  letter-spacing: 0.5px;
+}
+
+.site-subtitle {
+  margin: 0;
+  font-size: 1.05em;
+  color: #1b335e;
+}
+
+/* פריסה כללית */
+main {
+  max-width: 960px;
+  margin: 18px auto 40px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 16px #0038b820;
+  padding: 24px 22px 22px 22px;
+  margin-bottom: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* כפתורים */
+.primary-btn,
+.secondary-btn {
+  font-family: inherit;
+  border-radius: 12px;
+  padding: 11px 24px;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: 0.18s;
+}
+
+.primary-btn {
+  background: #235dec;
+  color: #fff;
+  box-shadow: 0 0 8px #0038b831;
+}
+
+.primary-btn:hover {
+  background: #0038b8;
+}
+
+.secondary-btn {
+  background: #e7f0fd;
+  color: #00338c;
+}
+
+.secondary-btn:hover {
+  background: #d3e2ff;
+}
+
+.primary-btn.outline {
+  background: #ffffff;
+  color: #0038b8;
+  border: 2px solid #0038b8;
+  box-shadow: none;
+}
+
+.primary-btn.outline:hover {
+  background: #e7f0fd;
+}
+
+/* דף בית */
+#landingSection h2 {
+  margin-top: 0;
+  color: #00338c;
+}
+
+.landing-points {
+  margin: 10px 0 18px 0;
+  padding-right: 20px;
+}
+
+.landing-points li {
+  margin-bottom: 4px;
+}
+
+/* ויזארד */
+.wizard-header h2 {
+  margin: 0 0 4px 0;
+  color: #00338c;
+}
+
+.wizard-header p {
+  margin: 4px 0 6px 0;
+  color: #1b335e;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 7px;
+  overflow: hidden;
+  background: #e7f0fd;
+  margin: 12px 0 4px 0;
+}
+
+.progress {
+  background: #0038b8;
+  height: 100%;
+  width: 0;
+  transition: width 0.2s ease-out;
+}
+
+.progress-label {
+  font-size: 0.95em;
+  color: #345;
+}
+
+/* שלבים */
+.stage {
+  margin-top: 14px;
+}
+
+.stage h3 {
+  margin-top: 0;
+  color: #00338c;
+}
+
+.stage label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 0.98em;
+}
+
+.stage input[type="text"],
+.stage input[type="number"],
+.stage select,
+.stage textarea {
+  width: 100%;
+  padding: 10px 11px;
+  border-radius: 8px;
+  border: 1.5px solid #d0d8ea;
+  font-family: inherit;
+  font-size: 0.98em;
+  outline: none;
+}
+
+.stage input:focus,
+.stage select:focus,
+.stage textarea:focus {
+  border-color: #235dec;
+  box-shadow: 0 0 0 2px #e2ebfa;
+}
+
+.stage textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.hint {
+  font-size: 0.95em;
+  color: #53627a;
+  margin-top: 0;
+}
+
+/* צ'קבוקסים וסקייל */
+.checklist {
+  margin-top: 8px;
+}
+
+.checklist label {
+  font-weight: 400;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.scale-group {
+  margin-top: 10px;
+}
+
+.scale-group span {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.scale-options label {
+  display: inline-block;
+  margin-left: 8px;
+  font-weight: 400;
+  font-size: 0.95em;
+}
+
+/* ניווט שלבים */
+.nav-btns {
+  margin-top: 22px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.nav-btns .nav-btn[disabled] {
+  background: #c1cadb;
+  color: #f5f7fd;
+  cursor: not-allowed;
+}
+
+/* סיכום */
+.summary-box {
+  background: #f0f5ff;
+  border-radius: 16px;
+  padding: 18px 16px;
+  border: 1px solid #c7d5ff;
+  font-size: 0.98em;
+  line-height: 1.7;
+}
+
+.summary-box h3 {
+  margin-top: 0;
+}
+
+.summary-actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.summary-note {
+  margin-top: 10px;
+  font-size: 0.92em;
+  color: #53627a;
+}
+
+/* פוטר */
+.site-footer {
+  text-align: center;
+  padding: 16px 12px 26px 12px;
+  font-size: 0.9em;
+  color: #53627a;
+}
+
+/* מובייל */
+@media (max-width: 700px) {
+  .site-title {
+    font-size: 1.5em;
+  }
+
+  .card {
+    padding: 18px 14px 18px 14px;
+  }
+
+  .nav-btns {
+    flex-direction: column-reverse;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+}

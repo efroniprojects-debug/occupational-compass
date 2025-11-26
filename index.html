@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>הנתיב שלך – Your Lane</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="הנתיב שלך (Your Lane) – שאלון אבחון קריירה חכם בעברית, מונע AI, לקבלת תובנות וכיוונים תעסוקתיים.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <img src="assets/image.jpg" alt="לוגו הנתיב שלך Your Lane" class="logo-main">
+    <h1 class="site-title">הנתיב שלך – Your Lane</h1>
+    <p class="site-subtitle">שאלון אבחון קריירה חכם, מונע AI</p>
+  </header>
+
+  <main>
+    <!-- מסך בית / הסבר -->
+    <section id="landingSection" class="card">
+      <h2>ברוך הבא ל"הנתיב שלך"</h2>
+      <p>
+        כאן תוכל למלא שאלון קריירה קצר, לקבל תובנות ראשוניות, ולייצא סיכום לשיתוף עם יועץ או לעצמך.
+      </p>
+      <ul class="landing-points">
+        <li>שאלון קצר – כ־5–10 דקות.</li>
+        <li>מתאים גם למבוגרים וגם לצעירים.</li>
+        <li>המשך לגרסה מתקדמת עם AI בשלב הבא.</li>
+      </ul>
+      <button id="startBtn" class="primary-btn">התחלת האבחון</button>
+    </section>
+
+    <!-- ויזארד השאלון -->
+    <section id="wizardSection" class="card hidden">
+      <div class="wizard-header">
+        <h2>שאלון "הנתיב שלך"</h2>
+        <p>מלא את השלבים, בסוף תקבל סיכום ראשוני.</p>
+        <div class="progress-bar">
+          <div id="progress" class="progress"></div>
+        </div>
+        <p class="progress-label">
+          שלב <span id="currentStepLabel">1</span> מתוך <span id="totalStepsLabel">5</span>
+        </p>
+      </div>
+
+      <form id="diagnosisForm" autocomplete="off">
+        <div id="stepsWrap">
+          <!-- שלב 1: פרטים בסיסיים -->
+          <div class="stage" id="step1">
+            <h3>מי אתה?</h3>
+            <label for="fullName">שם מלא</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="age">גיל</label>
+            <input type="number" id="age" name="age" min="16" max="99" required>
+
+            <label for="region">אזור מגורים</label>
+            <input type="text" id="region" name="region" required>
+          </div>
+
+          <!-- שלב 2: מצב תעסוקתי -->
+          <div class="stage hidden" id="step2">
+            <h3>איפה אתה היום?</h3>
+            <label for="status">מצב תעסוקתי נוכחי</label>
+            <select id="status" name="status" required>
+              <option value="">בחר/י...</option>
+              <option value="employed">שכיר/ה</option>
+              <option value="self">עצמאי/ת</option>
+              <option value="between">בין עבודות</option>
+              <option value="student">סטודנט/ית</option>
+              <option value="other">אחר</option>
+            </select>
+
+            <label for="currentRole">תפקיד נוכחי (אם יש)</label>
+            <input type="text" id="currentRole" name="currentRole" placeholder="לדוגמה: מפתח/ת, מדריך/ה, סטודנט/ית למדעי המחשב">
+          </div>
+
+          <!-- שלב 3: תחומי עניין -->
+          <div class="stage hidden" id="step3">
+            <h3>מה מעניין אותך?</h3>
+            <p class="hint">סמן/י את התחומים שמושכים אותך, גם אם אין לך בהם ניסיון.</p>
+
+            <div class="checklist">
+              <label><input type="checkbox" name="interests" value="טכנולוגיה ודיגיטל"> טכנולוגיה ודיגיטל</label>
+              <label><input type="checkbox" name="interests" value="עבודה עם אנשים"> עבודה עם אנשים</label>
+              <label><input type="checkbox" name="interests" value="חינוך והדרכה"> חינוך והדרכה</label>
+              <label><input type="checkbox" name="interests" value="עסקים ויזמות"> עסקים ויזמות</label>
+              <label><input type="checkbox" name="interests" value="אמנות ויצירה"> אמנות ויצירה</label>
+              <label><input type="checkbox" name="interests" value="טיפול וסיוע"> טיפול וסיוע</label>
+              <label><input type="checkbox" name="interests" value="מחקר וניתוח נתונים"> מחקר וניתוח נתונים</label>
+            </div>
+
+            <label for="otherInterest">תחומים נוספים שמסקרנים אותך</label>
+            <textarea id="otherInterest" name="otherInterest" rows="2"></textarea>
+          </div>
+
+          <!-- שלב 4: חוזקות -->
+          <div class="stage hidden" id="step4">
+            <h3>החוזקות שלך</h3>
+            <p class="hint">דרג/י מ־1 עד 5 (1 = נמוך, 5 = חזק מאוד).</p>
+
+            <div class="scale-group">
+              <span>עבודה בצוות</span>
+              <div class="scale-options">
+                <label><input type="radio" name="teamwork" value="1" required>1</label>
+                <label><input type="radio" name="teamwork" value="2">2</label>
+                <label><input type="radio" name="teamwork" value="3">3</label>
+                <label><input type="radio" name="teamwork" value="4">4</label>
+                <label><input type="radio" name="teamwork" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="scale-group">
+              <span>למידה עצמית</span>
+              <div class="scale-options">
+                <label><input type="radio" name="selfLearning" value="1" required>1</label>
+                <label><input type="radio" name="selfLearning" value="2">2</label>
+                <label><input type="radio" name="selfLearning" value="3">3</label>
+                <label><input type="radio" name="selfLearning" value="4">4</label>
+                <label><input type="radio" name="selfLearning" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="scale-group">
+              <span>התמודדות עם שינויים</span>
+              <div class="scale-options">
+                <label><input type="radio" name="adaptability" value="1" required>1</label>
+                <label><input type="radio" name="adaptability" value="2">2</label>
+                <label><input type="radio" name="adaptability" value="3">3</label>
+                <label><input type="radio" name="adaptability" value="4">4</label>
+                <label><input type="radio" name="adaptability" value="5">5</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- שלב 5: מטרות ותמונה עתידית -->
+          <div class="stage hidden" id="step5">
+            <h3>לאן אתה רוצה להגיע?</h3>
+
+            <label for="futureVision">איך היית רוצה שייראה חייך המקצועיים בעוד 3–5 שנים?</label>
+            <textarea id="futureVision" name="futureVision" rows="3" required></textarea>
+
+            <label for="constraints">מהם האילוצים/הצרכים החשובים לך? (בריאות, שכר, מיקום, שעות, רגישויות ועוד)</label>
+            <textarea id="constraints" name="constraints" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <button type="button" id="prevBtn" class="nav-btn secondary-btn" disabled>הקודם</button>
+          <button type="button" id="nextBtn" class="nav-btn primary-btn">הבא</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- עמוד סיכום -->
+    <section id="summarySection" class="card hidden">
+      <h2>סיכום ראשוני – "הנתיב שלך"</h2>
+      <p class="hint">זהו סיכום אוטומטי ראשון בלבד, לא תחליף לייעוץ מקצועי.</p>
+
+      <div id="summaryContent" class="summary-box">
+        <!-- כאן JS יזריק טקסט סיכום דינמי -->
+      </div>
+
+      <div class="summary-actions">
+        <button id="backToFormBtn" class="secondary-btn">חזרה לשאלון</button>
+        <button id="downloadPdfBtn" class="primary-btn outline">הורדת סיכום כ-PDF (דוגמה)</button>
+        <button id="sendEmailBtn" class="primary-btn outline">שליחת סיכום למייל (דוגמה)</button>
+      </div>
+
+      <p class="summary-note">
+        שדרוג עתידי: חיבור למודל AI, שמירת נתונים מאובטחת, ויצירת מסלול אישי מפורט.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2025 הנתיב שלך – Your Lane · Powered by AI</span>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
